@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [HabitEntity::class, HabitLogEntity::class], version = 1, exportSchema = false)
+@Database(entities = [ProjectEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun habitDao(): HabitDao
+    abstract fun projectDao(): ProjectDao
 
     companion object {
         @Volatile
@@ -18,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "habit_database"
+                    "video_editor_database"
                 ).build()
                 INSTANCE = instance
                 instance
